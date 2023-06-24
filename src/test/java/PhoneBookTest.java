@@ -8,14 +8,16 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static ru.netology.PhoneBook.mapPhoneBook;
+
 public class PhoneBookTest {
 
-    Map<String, String> mapPhoneBook;
+
 
 
     @BeforeEach
     public void createMapPhoneBook() {
-        mapPhoneBook = new HashMap<>();
+
         mapPhoneBook.put("Petya","89057422934");
         mapPhoneBook.put("Vasya","89992342342");
         mapPhoneBook.put("Nina","89992344444");
@@ -23,7 +25,9 @@ public class PhoneBookTest {
 
     @AfterEach
     public void deleteMapPhoneBook() {
-        mapPhoneBook = null;
+        mapPhoneBook.remove("Petya","89057422934");
+        mapPhoneBook.remove("Vasya","89992342342");
+        mapPhoneBook.remove("Nina","89992344444");
     }
 @Test
     public void testAdd(){
@@ -35,6 +39,14 @@ int result=phoneBook.add(newName,newNumber);
     Assertions.assertEquals(expected,result);
     }
 
-
+    @Test
+    public void testAddException(){
+        PhoneBook phoneBook=new PhoneBook();
+        String newName="Petya";
+        String newNumber="89108564723";
+        int expected=mapPhoneBook.size();
+        int result=phoneBook.add(newName,newNumber);
+        Assertions.assertEquals(expected,result);
+    }
 
 }
