@@ -1,15 +1,11 @@
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.*;
 import ru.netology.PhoneBook;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.netology.PhoneBook.mapPhoneBook;
 
 public class PhoneBookTest {
     PhoneBook phoneBook;
-
-
     @BeforeEach
     public void createMapPhoneBook() {
         phoneBook = new PhoneBook();
@@ -32,7 +28,7 @@ public class PhoneBookTest {
         String newNumber = "89108564723";
         int expected = mapPhoneBook.size() + 1;
         int result = phoneBook.add(newName, newNumber);
-        Assertions.assertEquals(expected, result);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -42,7 +38,7 @@ public class PhoneBookTest {
         String newNumber = "89108564723";
         int expected = mapPhoneBook.size();
         int result = phoneBook.add(newName, newNumber);
-        Assertions.assertEquals(expected, result);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -52,7 +48,7 @@ public class PhoneBookTest {
         String newNumber = "89057422934";
         String expected = newName;
         String result = phoneBook.findByNumber(newNumber);
-        Assertions.assertEquals(expected, result);
+        assertEquals(expected, result);
     }
 
     @Test
@@ -63,23 +59,24 @@ public class PhoneBookTest {
         String result = phoneBook.findByNumber(newNumber);
         Assertions.assertNull(result);
     }
+
     @Test
     public void testFindByName() {
 
         String newName = "Petya";
         String newNumber = "89057422934";
         String expected = newNumber;
-        String result = phoneBook.findByNumber(newName);
-        Assertions.assertEquals(expected, result);
+        String result = phoneBook.findByName(newName);
+        assertEquals(expected, result);
     }
 
     @Test
     public void testFindByNameNull() {
 
         String newName = "Kolya";
-
-        String result = phoneBook.findByNumber(newName);
+        String result = phoneBook.findByName(newName);
         Assertions.assertNull(result);
     }
-
 }
+
+
