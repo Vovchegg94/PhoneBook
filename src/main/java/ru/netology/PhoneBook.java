@@ -23,4 +23,8 @@ public class PhoneBook {
         System.out.println("Контакт с указанным номером не найден");
         return null;
     }
+    public String findByName(String newName) {
+        return null;
+    }
+
 }
