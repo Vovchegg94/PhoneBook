@@ -13,5 +13,8 @@ public class PhoneBook {
         mapPhoneBook.put(newName,newNumber);
         return mapPhoneBook.size();
     }
+    public String findByNumber(String newNumber){
+        return null;
 
+    }
 }
