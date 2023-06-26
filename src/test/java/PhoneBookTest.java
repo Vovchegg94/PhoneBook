@@ -58,7 +58,7 @@ public class PhoneBookTest {
     @Test
     public void testFindByNumberNull() {
 
-        String newNumber = "89108564723";
+        String newNumber = "89999999999";
 
         String result = phoneBook.findByNumber(newNumber);
         Assertions.assertNull(result);

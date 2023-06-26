@@ -1,5 +1,6 @@
 package ru.netology;
 
+import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,7 +15,12 @@ public class PhoneBook {
         return mapPhoneBook.size();
     }
     public String findByNumber(String newNumber){
+        for (Map.Entry<String, String> kv :  mapPhoneBook.entrySet()) {
+            if (kv.getValue().equals(newNumber)){
+                return kv.getKey();
+            }
+        }
+        System.out.println("Контакт с указанным номером не найден");
         return null;
-
     }
 }
