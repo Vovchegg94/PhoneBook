@@ -34,22 +34,23 @@ public class PhoneBook {
         System.out.println("Контакт с указанным именем не найден");
         return null;
     }
+
     public List<String> printAllNames(Map<String, String> map) {
-        return null;
 
-    }
-    /*public void printAllNames(Map<String, String> map) {
-        List<String> list = new ArrayList<>();
+            List<String> list = new ArrayList<>();
 
-        for (Map.Entry<String, String> kv : map.entrySet()) {
-            list.add(kv.getKey());
+            for (Map.Entry<String, String> kv : map.entrySet()) {
+                list.add(kv.getKey());
 
+            }
+            List<String> sortedList = list.stream()
+                    .sorted(Comparator.naturalOrder())
+                    .toList();
+            sortedList.forEach(System.out::println);
+            return sortedList;
         }
-        List<String> sortedList = list.stream()
-                .sorted(Comparator.naturalOrder())
-                .toList();
-        sortedList.forEach(System.out::println);*/
     }
+
 
 
 
