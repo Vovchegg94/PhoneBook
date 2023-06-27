@@ -34,8 +34,11 @@ public class PhoneBook {
         System.out.println("Контакт с указанным именем не найден");
         return null;
     }
+    public List<String> printAllNames(Map<String, String> map) {
+        return null;
 
-    public void printAllNames(Map<String, String> map) {
+    }
+    /*public void printAllNames(Map<String, String> map) {
         List<String> list = new ArrayList<>();
 
         for (Map.Entry<String, String> kv : map.entrySet()) {
@@ -45,10 +48,10 @@ public class PhoneBook {
         List<String> sortedList = list.stream()
                 .sorted(Comparator.naturalOrder())
                 .toList();
-        sortedList.forEach(System.out::println);
+        sortedList.forEach(System.out::println);*/
     }
 
-}
+
 
 
 

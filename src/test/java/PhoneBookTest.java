@@ -1,13 +1,17 @@
 import org.junit.jupiter.api.*;
 import ru.netology.PhoneBook;
 
+import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static ru.netology.PhoneBook.mapPhoneBook;
 
 public class PhoneBookTest {
     PhoneBook phoneBook;
+    List<String> testList;
     @BeforeEach
     public void createMapPhoneBook() {
+
         phoneBook = new PhoneBook();
         mapPhoneBook.put("Petya", "89057422934");
         mapPhoneBook.put("Vasya", "89992342342");
@@ -16,6 +20,7 @@ public class PhoneBookTest {
 
     @AfterEach
     public void deleteMapPhoneBook() {
+        testList=null;
         phoneBook = null;
         mapPhoneBook.remove("Petya", "89057422934");
         mapPhoneBook.remove("Vasya", "89992342342");
@@ -72,11 +77,19 @@ public class PhoneBookTest {
 
     @Test
     public void testFindByNameNull() {
-
+        System.out.println();
         String newName = "Kolya";
         String result = phoneBook.findByName(newName);
         Assertions.assertNull(result);
     }
+
+    @Test
+    public void testPrintAllNames() {
+        testList = Arrays.asList("Ira", "Nina", "Petya","Vasya");
+        List<String> result = phoneBook.printAllNames(mapPhoneBook);
+        assertEquals(testList, result);
+    }
+
 }
 
 
